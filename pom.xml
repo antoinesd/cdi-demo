@@ -16,7 +16,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <cdi.version>4.0.1</cdi.version>
-    <weld-junit4.version>4.0.0.Final</weld-junit4.version>
+    <weld-junit5.version>4.0.0.Final</weld-junit5.version>
     <version.weld>5.1.0.Final</version.weld>
 
     <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
@@ -31,8 +31,8 @@
       </dependency>
       <dependency>
         <groupId>org.jboss.weld</groupId>
-        <artifactId>weld-junit4</artifactId>
-        <version>${weld-junit4.version}</version>
+        <artifactId>weld-junit5</artifactId>
+        <version>${weld-junit5.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -52,7 +52,7 @@
 
     <dependency>
       <groupId>org.jboss.weld</groupId>
-      <artifactId>weld-junit4</artifactId>
+      <artifactId>weld-junit5</artifactId>
     </dependency>
 
     <dependency>
@@ -71,6 +71,10 @@
           <source>11</source>
           <target>11</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
       </plugin>
     </plugins>
   </build>

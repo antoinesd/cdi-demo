@@ -4,17 +4,20 @@ import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
 
 import org.cdi.demo.events.Payload;
-import org.jboss.weld.junit4.WeldInitiator;
-import org.junit.Rule;
-import org.junit.Test;
+import org.jboss.weld.junit5.WeldInitiator;
+import org.jboss.weld.junit5.WeldJunit5Extension;
+import org.jboss.weld.junit5.WeldSetup;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * Created by antoine on 24/10/2015.
  */
-
+@ExtendWith(WeldJunit5Extension.class)
 public class OrderingEventTest {
 
-    @Rule
+
+    @WeldSetup
     public WeldInitiator weld = WeldInitiator.from(OrderedObserverBean.class).inject(this).build();
 
     @Test

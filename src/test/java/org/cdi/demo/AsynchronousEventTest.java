@@ -5,20 +5,23 @@ package org.cdi.demo;
 import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
 import org.cdi.demo.events.Payload;
-import org.jboss.weld.junit4.WeldInitiator;
-import org.junit.Rule;
-import org.junit.Test;
+import org.jboss.weld.junit5.WeldInitiator;
+import org.jboss.weld.junit5.WeldJunit5Extension;
+import org.jboss.weld.junit5.WeldSetup;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * Created by antoine on 24/10/2015.
  */
 
-
+@ExtendWith(WeldJunit5Extension.class)
 public class AsynchronousEventTest {
 
 
-    @Rule
-    public WeldInitiator weld = WeldInitiator.from(AsynchronousObserverBean.class).inject(this).build();
+    @WeldSetup
+    public WeldInitiator weld = WeldInitiator.from(AsynchronousObserverBean.class).build();
 
     @Test
     public void eventTest() {
